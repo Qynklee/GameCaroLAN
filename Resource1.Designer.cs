@@ -71,6 +71,22 @@ namespace CaroLAN_v2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CaroGame v3.0.1
+        ///Development Team:
+        ///Đào Anh Tú (@Qynklee)
+        ///Nguyễn Ngọc Hưng (@tamquy999)
+        ///Thanks to:  Mr.Ha Chi Trung
+        ///Google; StackOverflow; Microsoft...
+        ///This game now is open source in: 
+        ///https://github.com/Qynklee/GameCaroLAN.
+        /// </summary>
+        internal static string About_DevTeam {
+            get {
+                return ResourceManager.GetString("About DevTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap exit {
@@ -81,11 +97,32 @@ namespace CaroLAN_v2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5 in line to win
+        ///Each turn plays in 15s !
+        ///Have fun!.
+        /// </summary>
+        internal static string Gamerule {
+            get {
+                return ResourceManager.GetString("Gamerule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap gamerules {
             get {
                 object obj = ResourceManager.GetObject("gamerules", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap haveTurn {
+            get {
+                object obj = ResourceManager.GetObject("haveTurn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

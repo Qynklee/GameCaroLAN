@@ -24,9 +24,23 @@ namespace CaroLAN_v2
         {
             InitializeComponent();
 
+            //Show name and turn:
             label_player1_score.Text = player1_score.ToString();
             label_player2_score.Text = player2_score.ToString();
-
+            pictureBox_MainTurn.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox_GuestTurn.SizeMode = PictureBoxSizeMode.StretchImage;
+            if(isHostGame)
+            {
+                pictureBox_MainTurn.Image = Resource1.haveTurn;
+                pictureBox_GuestTurn.Image = null;
+                label_TurnFor.Text = "Your turn !";
+            }
+            else
+            {
+                pictureBox_GuestTurn.Image = Resource1.haveTurn;
+                pictureBox_MainTurn.Image = null;
+                label_TurnFor.Text = "Opponent turn !";
+            }
             SOCKET = socket;
             this.form1 = form1;
 
@@ -223,12 +237,12 @@ namespace CaroLAN_v2
 
         private void AboutCaroGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("5 in one line to win!", "Game Rules");
+            MessageBox.Show(Resource1.Gamerule, "Game Rules");
         }
 
         private void AboutDevTeamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Caro Game LAN v3.0");
+            MessageBox.Show(Resource1.About_DevTeam,"About");
         }
     }
 }

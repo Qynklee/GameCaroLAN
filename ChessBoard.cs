@@ -127,6 +127,18 @@ namespace CaroLAN_v2
         {
             isTurnForMe = !isTurnForMe;
             //CHESSBOARD.Enabled = isTurnForMe;
+            if(isTurnForMe)
+            {
+                form2.pictureBox_MainTurn.Image = Resource1.haveTurn;
+                form2.pictureBox_GuestTurn.Image = null;
+                form2.label_TurnFor.Text = "Your turn !";
+            }
+            else
+            {
+                form2.pictureBox_GuestTurn.Image = Resource1.haveTurn;
+                form2.pictureBox_MainTurn.Image = null;
+                form2.label_TurnFor.Text = "Opponent turn !";
+            }
 
         }
 
