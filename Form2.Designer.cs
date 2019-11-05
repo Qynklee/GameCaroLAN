@@ -33,21 +33,21 @@
             this.Panel_ChessBoard = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutCaroGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutDevTeamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Player2_score = new System.Windows.Forms.Label();
-            this.Player1_score = new System.Windows.Forms.Label();
+            this.label_player2_score = new System.Windows.Forms.Label();
+            this.label_player1_score = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.coolDownBar = new System.Windows.Forms.ProgressBar();
+            this.GuestICON = new System.Windows.Forms.PictureBox();
+            this.MainICON = new System.Windows.Forms.PictureBox();
             this.label_NameGuest = new System.Windows.Forms.Label();
             this.label_NameMain = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.GuestICON = new System.Windows.Forms.PictureBox();
-            this.MainICON = new System.Windows.Forms.PictureBox();
-            this.NewMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.QuitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AboutDevTeamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GuestICON)).BeginInit();
@@ -70,7 +70,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(720, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(716, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,6 +82,22 @@
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.actionsToolStripMenuItem.Text = "Actions";
+            // 
+            // NewMatchToolStripMenuItem
+            // 
+            this.NewMatchToolStripMenuItem.Image = global::CaroLAN_v2.Resource1.newgame;
+            this.NewMatchToolStripMenuItem.Name = "NewMatchToolStripMenuItem";
+            this.NewMatchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.NewMatchToolStripMenuItem.Text = "New match";
+            this.NewMatchToolStripMenuItem.Click += new System.EventHandler(this.NewMatchToolStripMenuItem_Click);
+            // 
+            // QuitGameToolStripMenuItem
+            // 
+            this.QuitGameToolStripMenuItem.Image = global::CaroLAN_v2.Resource1.exit;
+            this.QuitGameToolStripMenuItem.Name = "QuitGameToolStripMenuItem";
+            this.QuitGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.QuitGameToolStripMenuItem.Text = "Quit";
+            this.QuitGameToolStripMenuItem.Click += new System.EventHandler(this.QuitGameToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -100,11 +116,19 @@
             this.AboutCaroGameToolStripMenuItem.Text = "Game Rules";
             this.AboutCaroGameToolStripMenuItem.Click += new System.EventHandler(this.AboutCaroGameToolStripMenuItem_Click);
             // 
+            // AboutDevTeamToolStripMenuItem
+            // 
+            this.AboutDevTeamToolStripMenuItem.Image = global::CaroLAN_v2.Resource1.about;
+            this.AboutDevTeamToolStripMenuItem.Name = "AboutDevTeamToolStripMenuItem";
+            this.AboutDevTeamToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AboutDevTeamToolStripMenuItem.Text = "About DevTeam";
+            this.AboutDevTeamToolStripMenuItem.Click += new System.EventHandler(this.AboutDevTeamToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.Player2_score);
-            this.panel1.Controls.Add(this.Player1_score);
+            this.panel1.Controls.Add(this.label_player2_score);
+            this.panel1.Controls.Add(this.label_player1_score);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.coolDownBar);
             this.panel1.Controls.Add(this.GuestICON);
@@ -116,26 +140,26 @@
             this.panel1.Size = new System.Drawing.Size(699, 95);
             this.panel1.TabIndex = 3;
             // 
-            // Player2_score
+            // label_player2_score
             // 
-            this.Player2_score.AutoSize = true;
-            this.Player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player2_score.Location = new System.Drawing.Point(392, 11);
-            this.Player2_score.Name = "Player2_score";
-            this.Player2_score.Size = new System.Drawing.Size(32, 36);
-            this.Player2_score.TabIndex = 10;
-            this.Player2_score.Text = "1";
+            this.label_player2_score.AutoSize = true;
+            this.label_player2_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_player2_score.Location = new System.Drawing.Point(392, 11);
+            this.label_player2_score.Name = "label_player2_score";
+            this.label_player2_score.Size = new System.Drawing.Size(32, 36);
+            this.label_player2_score.TabIndex = 10;
+            this.label_player2_score.Text = "1";
             // 
-            // Player1_score
+            // label_player1_score
             // 
-            this.Player1_score.AutoSize = true;
-            this.Player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Player1_score.Location = new System.Drawing.Point(283, 11);
-            this.Player1_score.Name = "Player1_score";
-            this.Player1_score.Size = new System.Drawing.Size(32, 36);
-            this.Player1_score.TabIndex = 9;
-            this.Player1_score.Text = "0";
-            this.Player1_score.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label_player1_score.AutoSize = true;
+            this.label_player1_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_player1_score.Location = new System.Drawing.Point(283, 11);
+            this.label_player1_score.Name = "label_player1_score";
+            this.label_player1_score.Size = new System.Drawing.Size(32, 36);
+            this.label_player1_score.TabIndex = 9;
+            this.label_player1_score.Text = "0";
+            this.label_player1_score.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
             // 
@@ -149,36 +173,11 @@
             // 
             // coolDownBar
             // 
-            this.coolDownBar.Location = new System.Drawing.Point(241, 55);
+            this.coolDownBar.Location = new System.Drawing.Point(242, 50);
             this.coolDownBar.Maximum = 1500;
             this.coolDownBar.Name = "coolDownBar";
             this.coolDownBar.Size = new System.Drawing.Size(217, 23);
             this.coolDownBar.TabIndex = 7;
-            // 
-            // label_NameGuest
-            // 
-            this.label_NameGuest.AutoSize = true;
-            this.label_NameGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_NameGuest.Location = new System.Drawing.Point(538, 41);
-            this.label_NameGuest.Name = "label_NameGuest";
-            this.label_NameGuest.Size = new System.Drawing.Size(60, 24);
-            this.label_NameGuest.TabIndex = 4;
-            this.label_NameGuest.Text = "label1";
-            this.label_NameGuest.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label_NameMain
-            // 
-            this.label_NameMain.AutoSize = true;
-            this.label_NameMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_NameMain.Location = new System.Drawing.Point(101, 41);
-            this.label_NameMain.Name = "label_NameMain";
-            this.label_NameMain.Size = new System.Drawing.Size(60, 24);
-            this.label_NameMain.TabIndex = 3;
-            this.label_NameMain.Text = "label1";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // GuestICON
             // 
@@ -198,35 +197,34 @@
             this.MainICON.TabIndex = 5;
             this.MainICON.TabStop = false;
             // 
-            // NewMatchToolStripMenuItem
+            // label_NameGuest
             // 
-            this.NewMatchToolStripMenuItem.Image = global::CaroLAN_v2.Resource1.newgame;
-            this.NewMatchToolStripMenuItem.Name = "NewMatchToolStripMenuItem";
-            this.NewMatchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.NewMatchToolStripMenuItem.Text = "New match";
-            this.NewMatchToolStripMenuItem.Click += new System.EventHandler(this.NewMatchToolStripMenuItem_Click);
+            this.label_NameGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_NameGuest.Location = new System.Drawing.Point(465, 38);
+            this.label_NameGuest.Name = "label_NameGuest";
+            this.label_NameGuest.Size = new System.Drawing.Size(130, 50);
+            this.label_NameGuest.TabIndex = 4;
+            this.label_NameGuest.Text = "label1";
+            this.label_NameGuest.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // QuitGameToolStripMenuItem
+            // label_NameMain
             // 
-            this.QuitGameToolStripMenuItem.Image = global::CaroLAN_v2.Resource1.exit;
-            this.QuitGameToolStripMenuItem.Name = "QuitGameToolStripMenuItem";
-            this.QuitGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.QuitGameToolStripMenuItem.Text = "Quit";
-            this.QuitGameToolStripMenuItem.Click += new System.EventHandler(this.QuitGameToolStripMenuItem_Click);
+            this.label_NameMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_NameMain.Location = new System.Drawing.Point(106, 38);
+            this.label_NameMain.Name = "label_NameMain";
+            this.label_NameMain.Size = new System.Drawing.Size(130, 50);
+            this.label_NameMain.TabIndex = 3;
+            this.label_NameMain.Text = "label1";
             // 
-            // AboutDevTeamToolStripMenuItem
+            // timer1
             // 
-            this.AboutDevTeamToolStripMenuItem.Image = global::CaroLAN_v2.Resource1.about;
-            this.AboutDevTeamToolStripMenuItem.Name = "AboutDevTeamToolStripMenuItem";
-            this.AboutDevTeamToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.AboutDevTeamToolStripMenuItem.Text = "About DevTeam";
-            this.AboutDevTeamToolStripMenuItem.Click += new System.EventHandler(this.AboutDevTeamToolStripMenuItem_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 761);
+            this.ClientSize = new System.Drawing.Size(716, 768);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panel_ChessBoard);
             this.Controls.Add(this.menuStrip1);
@@ -264,8 +262,8 @@
         public System.Windows.Forms.PictureBox MainICON;
         private System.Windows.Forms.ProgressBar coolDownBar;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label Player2_score;
-        private System.Windows.Forms.Label Player1_score;
+        private System.Windows.Forms.Label label_player2_score;
+        private System.Windows.Forms.Label label_player1_score;
         private System.Windows.Forms.Label label1;
     }
 }

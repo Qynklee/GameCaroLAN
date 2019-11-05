@@ -24,8 +24,8 @@ namespace CaroLAN_v2
         {
             InitializeComponent();
 
-            Player1_score.Text = player1_score.ToString();
-            Player2_score.Text = player2_score.ToString();
+            label_player1_score.Text = player1_score.ToString();
+            label_player2_score.Text = player2_score.ToString();
 
             SOCKET = socket;
             this.form1 = form1;
@@ -102,13 +102,13 @@ namespace CaroLAN_v2
             {
                 MessageBox.Show("You looseeeeeeeee !!!");
                 player2_score++;
-                Player2_score.Text = player2_score.ToString();
+                label_player2_score.Text = player2_score.ToString();
             }
             else
             {
                 MessageBox.Show("You Winnnnnnnnnnn !!!");
                 player1_score++;
-                Player1_score.Text = player1_score.ToString();
+                label_player1_score.Text = player1_score.ToString();
             }
         }
 
