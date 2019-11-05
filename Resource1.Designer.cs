@@ -72,12 +72,12 @@ namespace CaroLAN_v2 {
         
         /// <summary>
         ///   Looks up a localized string similar to CaroGame v3.0.1
-        ///Development Team:
-        ///Đào Anh Tú (@Qynklee)
-        ///Nguyễn Ngọc Hưng (@tamquy999)
-        ///Thanks to:  Mr.Ha Chi Trung
-        ///Google; StackOverflow; Microsoft...
-        ///This game now is open source in: 
+        ///Developer Team:
+        ///   Đào Anh Tú (@Qynklee)
+        ///   Nguyễn Ngọc Hưng (@tamquy999)
+        ///Thanks for:  Mr. Ha Chi Trung
+        ///Thanks to: Google, Microsoft, StackOverflow, ...
+        ///This game is now open source on: 
         ///https://github.com/Qynklee/GameCaroLAN.
         /// </summary>
         internal static string About_DevTeam {
@@ -97,8 +97,8 @@ namespace CaroLAN_v2 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5 in line to win
-        ///Each turn plays in 15s !
+        ///   Looks up a localized string similar to 5 in a line to win
+        ///Each player has 15s to make their decision
         ///Have fun!.
         /// </summary>
         internal static string Gamerule {

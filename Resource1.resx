@@ -123,20 +123,20 @@
   </data>
   <data name="About DevTeam" xml:space="preserve">
     <value>CaroGame v3.0.1
-Development Team:
-Đào Anh Tú (@Qynklee)
-Nguyễn Ngọc Hưng (@tamquy999)
-Thanks to:  Mr.Ha Chi Trung
-Google; StackOverflow; Microsoft...
-This game now is open source in: 
+Developer Team:
+   Đào Anh Tú (@Qynklee)
+   Nguyễn Ngọc Hưng (@tamquy999)
+Thanks for:  Mr. Ha Chi Trung
+Thanks to: Google, Microsoft, StackOverflow, ...
+This game is now open source on: 
 https://github.com/Qynklee/GameCaroLAN</value>
   </data>
   <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gamerule" xml:space="preserve">
-    <value>5 in line to win
-Each turn plays in 15s !
+    <value>5 in a line to win
+Each player has 15s to make their decision
 Have fun!</value>
   </data>
   <data name="gamerules" type="System.Resources.ResXFileRef, System.Windows.Forms">

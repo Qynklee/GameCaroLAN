@@ -30,6 +30,8 @@ namespace CaroLAN_v2
             SOCKET = new SocketManager(this);
             haveAvatar = false;
 
+            this.ActiveControl = textBox1;
+
             string IPlocal = SOCKET.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
 
             if (IPlocal == null || IPlocal == "")
@@ -65,7 +67,7 @@ namespace CaroLAN_v2
                 bool Checked = SOCKET.ConnectServer();
                 if (!Checked)//Connect unsuccess
                 {
-                    MessageBox.Show("Can't connect to Server");
+                    MessageBoxEx.Show(this, "Can't connect to Server");
                     Visible = true;
                     return;
                 }
@@ -98,7 +100,7 @@ namespace CaroLAN_v2
                 bool Checked = SOCKET.CreateServer();
                 if (!Checked)
                 {
-                    MessageBox.Show("Can't Create Server");
+                    MessageBoxEx.Show(this, "Can't Create Server");
                     return;
                 }
                 else

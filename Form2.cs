@@ -114,13 +114,13 @@ namespace CaroLAN_v2
             timer1.Stop();
             if (CHESSBOARD.isTurnForMe)
             {
-                MessageBox.Show("You looseeeeeeeee !!!");
+                MessageBoxEx.Show(this, "You looseeeeeeeee !!!");
                 player2_score++;
                 label_player2_score.Text = player2_score.ToString();
             }
             else
             {
-                MessageBox.Show("You Winnnnnnnnnnn !!!");
+                MessageBoxEx.Show(this, "You Winnnnnnnnnnn !!!");
                 player1_score++;
                 label_player1_score.Text = player1_score.ToString();
             }
@@ -144,14 +144,15 @@ namespace CaroLAN_v2
 
                     break;
                 case (int)SocketCommand.NOTIFY:
-                    MessageBox.Show(Data.message.ToString());
+                    MessageBoxEx.Show(this, Data.message.ToString());
                     break;
                 case (int)SocketCommand.NEW_GAME:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        Reset_ProgressBar();
+                        //Reset_ProgressBar();
+                        DialogResult result = MessageBoxEx.Show(this, "Your partner want to make new game, Accept?", "", MessageBoxButtons.YesNo);
                         //CHESSBOARD.NewGame();
-                        if (MessageBox.Show("Your partner want to make new game, Continue?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (result == DialogResult.Yes)
                         {
                             SocketData data = new SocketData((int)SocketCommand.ACCEPT, new Point());
                             SOCKET.Send(data);
@@ -161,7 +162,7 @@ namespace CaroLAN_v2
                         {
                             SocketData data = new SocketData((int)SocketCommand.IGNORE, new Point());
                             SOCKET.Send(data);
-                            MessageBox.Show("New game request is aborted.");
+                            //MessageBoxEx.Show(this, "New game request is aborted.");
                         }
                     }));
                     break;
@@ -169,22 +170,28 @@ namespace CaroLAN_v2
                     break;
                 case (int)SocketCommand.QUIT:
                     timer1.Stop();
-                    if (MessageBox.Show("Opponent left the game. Do you want to quit?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    this.Invoke((MethodInvoker)(() =>
                     {
-                        Close();
-                    }
+                        DialogResult result2 = MessageBoxEx.Show(this, "Opponent left the game. Do you want to quit?", "", MessageBoxButtons.YesNo);
+                        if (result2 == DialogResult.Yes)
+                        {
+                            Close();
+                        }
+                    }));
                     break;
                 case (int)SocketCommand.ACCEPT:
                     this.Invoke((MethodInvoker)(() =>
                     {
                         CHESSBOARD.NewGame();
-                        MessageBox.Show("Your partner accept new game");
+                        MessageBoxEx.Show(this, "Your partner accepted new game request");
+                        Text = "Caro Game";
                     }));
                     break;
                 case (int)SocketCommand.IGNORE:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        MessageBox.Show("Your partner ignore new game");
+                        MessageBoxEx.Show(this, "Your partner ignored new game request");
+                        Text = "Caro Game";
                     }));
                     break;
             }
@@ -218,12 +225,13 @@ namespace CaroLAN_v2
             //CHESSBOARD.NewGame();
             SocketData data = new SocketData((int)SocketCommand.NEW_GAME, new Point());
             SOCKET.Send(data);
-            MessageBox.Show("Waitting Request...");
+            //MessageBoxEx.Show(this, "Waitting for respond ...");
+            Text = "Caro Game (Waitting for new game respond ...)";
         }
 
         private void QuitGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Do you want to quit ?","Quit Game",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(MessageBoxEx.Show(this, "Do you really want to quit ?","Quit Game",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 form1.Close();
                 SocketData socDat = new SocketData((int)SocketCommand.QUIT, new Point());
@@ -237,12 +245,12 @@ namespace CaroLAN_v2
 
         private void AboutCaroGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Resource1.Gamerule, "Game Rules");
+            MessageBoxEx.Show(this, Resource1.Gamerule, "Game Rules");
         }
 
         private void AboutDevTeamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Resource1.About_DevTeam,"About");
+            MessageBoxEx.Show(this, Resource1.About_DevTeam, "About");
         }
     }
 }
