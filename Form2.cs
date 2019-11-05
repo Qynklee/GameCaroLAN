@@ -176,14 +176,6 @@ namespace CaroLAN_v2
             }
         }
 
-        private void vánMớiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Waitting Request...");
-            //CHESSBOARD.NewGame();
-            SocketData data = new SocketData((int)SocketCommand.NEW_GAME, new Point());
-            SOCKET.Send(data);
-        }
-
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             form1.Close();
@@ -204,6 +196,39 @@ namespace CaroLAN_v2
         {
             timer1.Stop();
             coolDownBar.Value = 0;
+        }
+
+        private void NewMatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            //CHESSBOARD.NewGame();
+            SocketData data = new SocketData((int)SocketCommand.NEW_GAME, new Point());
+            SOCKET.Send(data);
+            MessageBox.Show("Waitting Request...");
+        }
+
+        private void QuitGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Do you want to quit ?","Quit Game",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                form1.Close();
+                SocketData socDat = new SocketData((int)SocketCommand.QUIT, new Point());
+                SOCKET.Send(socDat);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void AboutCaroGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("5 in one line to win!", "Game Rules");
+        }
+
+        private void AboutDevTeamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Caro Game LAN v3.0");
         }
     }
 }

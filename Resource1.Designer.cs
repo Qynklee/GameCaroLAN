@@ -83,6 +83,16 @@ namespace CaroLAN_v2 {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gamerules {
+            get {
+                object obj = ResourceManager.GetObject("gamerules", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newgame {
             get {
                 object obj = ResourceManager.GetObject("newgame", resourceCulture);
