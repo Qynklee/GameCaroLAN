@@ -274,18 +274,20 @@ namespace CaroLAN_v2
         {
             if (this.Width < 1100 && !isMessageOpened)
             {
-                Size = new Size(this.Width + 3, this.Height);
+                Size = new Size(this.Width + 5, this.Height);
             }
             else if (!isMessageOpened)
             {
                 timer_Message.Stop();
                 isMessageOpened = true;
                 button_expand.BackgroundImage = Resource1.close;
+                panel_cover.Visible = false;
             }
 
             if (this.Width > 750 && isMessageOpened)
             {
-                Size = new Size(this.Width - 3, this.Height);
+                panel_cover.Visible = true;
+                Size = new Size(this.Width - 5, this.Height);
             }
             else if (isMessageOpened)
             {
@@ -330,7 +332,6 @@ namespace CaroLAN_v2
             if (!isMessageOpened)
                 button_expand.PerformClick();
         }
-
 
     }
 }

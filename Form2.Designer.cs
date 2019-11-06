@@ -57,6 +57,7 @@
             this.textBox_message = new System.Windows.Forms.TextBox();
             this.button_send = new System.Windows.Forms.Button();
             this.textBox_Type = new System.Windows.Forms.TextBox();
+            this.panel_cover = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_GuestTurn)).BeginInit();
@@ -82,7 +83,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(732, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1053, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -279,11 +280,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBox_message);
             this.groupBox1.Controls.Add(this.button_send);
             this.groupBox1.Controls.Add(this.textBox_Type);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(733, 29);
+            this.groupBox1.Location = new System.Drawing.Point(701, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(343, 727);
             this.groupBox1.TabIndex = 5;
@@ -319,15 +321,23 @@
             this.textBox_Type.TabIndex = 0;
             this.textBox_Type.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Type_KeyDown);
             // 
+            // panel_cover
+            // 
+            this.panel_cover.Location = new System.Drawing.Point(704, 29);
+            this.panel_cover.Name = "panel_cover";
+            this.panel_cover.Size = new System.Drawing.Size(28, 736);
+            this.panel_cover.TabIndex = 6;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 768);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button_expand);
+            this.ClientSize = new System.Drawing.Size(1053, 768);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panel_ChessBoard);
+            this.Controls.Add(this.button_expand);
+            this.Controls.Add(this.panel_cover);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -379,5 +389,6 @@
         private System.Windows.Forms.Button button_send;
         private System.Windows.Forms.TextBox textBox_Type;
         private System.Windows.Forms.TextBox textBox_message;
+        private System.Windows.Forms.Panel panel_cover;
     }
 }
