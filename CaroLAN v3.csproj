@@ -7,7 +7,7 @@
     <ProjectGuid>{B3186A9B-96E4-4561-82FD-B90806BB87D0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CaroLAN_v2</RootNamespace>
-    <AssemblyName>CaroLAN v2</AssemblyName>
+    <AssemblyName>CaroLAN v3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
