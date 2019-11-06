@@ -131,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\Expanded_icon_flipped.png" />
+    <None Include="Resources\Expanded_icon.png" />
     <None Include="Resources\iconturn-1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

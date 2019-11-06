@@ -17,12 +17,21 @@ namespace CaroLAN_v2
         public Form1 form1;
         public ChessBoard CHESSBOARD;
 
+        private bool isMessageOpened;
+
         private int player1_score = 0;
         private int player2_score = 0;
 
         public Form2(bool isHostGame, SocketManager socket, Form1 form1, string IP = null)
         {
             InitializeComponent();
+
+            // set button text to right arrow
+            button_expand.BackgroundImage = Resource1.open;
+
+            isMessageOpened = false;
+
+            Size = new Size(750, this.Height);
 
             //Show name and turn:
             label_player1_score.Text = player1_score.ToString();
@@ -140,10 +149,13 @@ namespace CaroLAN_v2
                         coolDownBar.Value = 0;
                         CHESSBOARD.GuestMark(Data.point);
                     }));
-
                     break;
                 case (int)SocketCommand.NOTIFY:
-                    MessageBoxEx.Show(this, Data.message.ToString());
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        textBox_message.AppendText(label_NameGuest.Text + ": " + Data.message + Environment.NewLine);
+                    }));
+                    
                     break;
                 case (int)SocketCommand.NEW_GAME:
                     this.Invoke((MethodInvoker)(() =>
@@ -257,5 +269,68 @@ namespace CaroLAN_v2
                 e.Cancel = true;
             }
         }
+
+        private void timer_Message_Tick(object sender, EventArgs e)
+        {
+            if (this.Width < 1100 && !isMessageOpened)
+            {
+                Size = new Size(this.Width + 3, this.Height);
+            }
+            else if (!isMessageOpened)
+            {
+                timer_Message.Stop();
+                isMessageOpened = true;
+                button_expand.BackgroundImage = Resource1.close;
+            }
+
+            if (this.Width > 750 && isMessageOpened)
+            {
+                Size = new Size(this.Width - 3, this.Height);
+            }
+            else if (isMessageOpened)
+            {
+                timer_Message.Stop();
+                isMessageOpened = false;
+                button_expand.BackgroundImage = Resource1.open;
+            }
+
+        }
+
+        private void textBox_Type_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_send_Click(this, new EventArgs());
+                e.SuppressKeyPress = true;
+            }
+
+        }
+
+        private void button_send_Click(object sender, EventArgs e)
+        {
+            if (textBox_Type.Text != "" || textBox_Type.Text != null)
+            {
+                //int start = textBox_Type.SelectionStart;
+                textBox_message.AppendText(label_NameMain.Text + ": " + textBox_Type.Text + Environment.NewLine);
+
+                SocketData socdat = new SocketData((int)SocketCommand.NOTIFY, new Point(), textBox_Type.Text);
+                SOCKET.Send(socdat);
+
+                textBox_Type.Text = "";
+            }
+        }
+
+        private void button_expand_Click(object sender, EventArgs e)
+        {
+            timer_Message.Start();
+        }
+
+        private void textBox_message_TextChanged(object sender, EventArgs e)
+        {
+            if (!isMessageOpened)
+                button_expand.PerformClick();
+        }
+
+
     }
 }
