@@ -92,10 +92,9 @@ namespace CaroLAN_v2
                     try
                     {
                         SocketData Dataset = (SocketData)SOCKET.Receive();
-                        //MessageBox.Show(message);
+                        
                         ConvertSocketDataReceived(Dataset);
-                        Listen();
-                        break;
+                        
                     }
                     catch (Exception)
                     {
@@ -175,7 +174,7 @@ namespace CaroLAN_v2
                         DialogResult result2 = MessageBoxEx.Show(this, "Opponent left the game. Do you want to quit?", "", MessageBoxButtons.YesNo);
                         if (result2 == DialogResult.Yes)
                         {
-                            Close();
+                            System.Environment.Exit(1);
                         }
                     }));
                     break;
@@ -197,13 +196,6 @@ namespace CaroLAN_v2
             }
         }
 
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            form1.Close();
-            SocketData socDat = new SocketData((int)SocketCommand.QUIT, new Point());
-            SOCKET.Send(socDat);
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             coolDownBar.PerformStep();
@@ -222,7 +214,6 @@ namespace CaroLAN_v2
         private void NewMatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            //CHESSBOARD.NewGame();
             SocketData data = new SocketData((int)SocketCommand.NEW_GAME, new Point());
             SOCKET.Send(data);
             //MessageBoxEx.Show(this, "Waitting for respond ...");
@@ -251,6 +242,20 @@ namespace CaroLAN_v2
         private void AboutDevTeamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBoxEx.Show(this, Resource1.About_DevTeam, "About");
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBoxEx.Show(this, "Do you really want to quit ?", "Quit Game", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                form1.Close();
+                SocketData socDat = new SocketData((int)SocketCommand.QUIT, new Point());
+                SOCKET.Send(socDat);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
