@@ -325,6 +325,7 @@ namespace CaroLAN_v2
         private void button_expand_Click(object sender, EventArgs e)
         {
             timer_Message.Start();
+            this.ActiveControl = textBox_Type;
         }
 
         private void textBox_message_TextChanged(object sender, EventArgs e)
