@@ -162,6 +162,9 @@ namespace CaroLAN_v2
                 matrix[point.X][point.Y].BackgroundImage = Resource1.X;
                 matrix[point.X][point.Y].ImageKey = "X";
             }
+
+            form2.ActiveControl = matrix[point.X][point.Y];
+
             ChangeTurn();
 
             boardChecked?.Invoke(this, new EventArgs());
