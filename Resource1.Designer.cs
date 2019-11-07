@@ -71,7 +71,7 @@ namespace CaroLAN_v2 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CaroGame v3.1.2
+        ///   Looks up a localized string similar to CaroGame v3.2.2
         ///Developer Team:
         ///   Đào Anh Tú (@Qynklee)
         ///   Nguyễn Ngọc Hưng (@tamquy999)

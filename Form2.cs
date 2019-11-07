@@ -154,9 +154,7 @@ namespace CaroLAN_v2
                 case (int)SocketCommand.NOTIFY:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        textBox_message.AppendText(label_NameGuest.Text + ": " + Data.message + Environment.NewLine);
-
-                        //richtextbox test:
+                        //richtextbox:
                         int pos_Start = richTextBox_message.TextLength;
                         int name_length = label_NameGuest.Text.Length;
                         richTextBox_message.AppendText(label_NameGuest.Text + ": ");
@@ -324,10 +322,7 @@ namespace CaroLAN_v2
         {
             if (textBox_Type.Text != "" || textBox_Type.Text != null)
             {
-                //int start = textBox_Type.SelectionStart;
-                textBox_message.AppendText(label_NameMain.Text + ": " + textBox_Type.Text + Environment.NewLine);
-
-                //Test with RichTextBox
+                //Show color with RichTextBox
                 int pos_Start = richTextBox_message.TextLength;
                 int name_length = label_NameMain.Text.Length;
                 richTextBox_message.AppendText(label_NameMain.Text + ": ");
@@ -338,9 +333,10 @@ namespace CaroLAN_v2
                 richTextBox_message.SelectionColor = Color.Black;
                 richTextBox_message.ScrollToCaret();
 
+                //send message:
                 SocketData socdat = new SocketData((int)SocketCommand.NOTIFY, new Point(), textBox_Type.Text);
                 SOCKET.Send(socdat);
-
+                //clear:
                 textBox_Type.Text = "";
             }
         }
@@ -351,11 +347,11 @@ namespace CaroLAN_v2
             this.ActiveControl = textBox_Type;
         }
 
-        private void textBox_message_TextChanged(object sender, EventArgs e)
+
+        private void richTextBox_message_TextChanged(object sender, EventArgs e)
         {
             if (!isMessageOpened)
                 button_expand.PerformClick();
         }
-
     }
 }

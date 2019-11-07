@@ -54,11 +54,10 @@
             this.button_expand = new System.Windows.Forms.Button();
             this.timer_Message = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox_message = new System.Windows.Forms.TextBox();
+            this.richTextBox_message = new System.Windows.Forms.RichTextBox();
             this.button_send = new System.Windows.Forms.Button();
             this.textBox_Type = new System.Windows.Forms.TextBox();
             this.panel_cover = new System.Windows.Forms.Panel();
-            this.richTextBox_message = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_GuestTurn)).BeginInit();
@@ -84,7 +83,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1102, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1022, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -283,26 +282,25 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.richTextBox_message);
-            this.groupBox1.Controls.Add(this.textBox_message);
             this.groupBox1.Controls.Add(this.button_send);
             this.groupBox1.Controls.Add(this.textBox_Type);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(750, 29);
+            this.groupBox1.Location = new System.Drawing.Point(670, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(343, 727);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Message";
             // 
-            // textBox_message
+            // richTextBox_message
             // 
-            this.textBox_message.Location = new System.Drawing.Point(11, 40);
-            this.textBox_message.Multiline = true;
-            this.textBox_message.Name = "textBox_message";
-            this.textBox_message.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_message.Size = new System.Drawing.Size(326, 141);
-            this.textBox_message.TabIndex = 2;
-            this.textBox_message.TextChanged += new System.EventHandler(this.textBox_message_TextChanged);
+            this.richTextBox_message.Location = new System.Drawing.Point(11, 26);
+            this.richTextBox_message.Name = "richTextBox_message";
+            this.richTextBox_message.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox_message.Size = new System.Drawing.Size(326, 600);
+            this.richTextBox_message.TabIndex = 3;
+            this.richTextBox_message.Text = "";
+            this.richTextBox_message.TextChanged += new System.EventHandler(this.richTextBox_message_TextChanged);
             // 
             // button_send
             // 
@@ -330,20 +328,11 @@
             this.panel_cover.Size = new System.Drawing.Size(28, 736);
             this.panel_cover.TabIndex = 6;
             // 
-            // richTextBox_message
-            // 
-            this.richTextBox_message.Location = new System.Drawing.Point(11, 188);
-            this.richTextBox_message.Name = "richTextBox_message";
-            this.richTextBox_message.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox_message.Size = new System.Drawing.Size(326, 401);
-            this.richTextBox_message.TabIndex = 3;
-            this.richTextBox_message.Text = "";
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 768);
+            this.ClientSize = new System.Drawing.Size(1022, 768);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panel_ChessBoard);
             this.Controls.Add(this.button_expand);
@@ -399,7 +388,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_send;
         private System.Windows.Forms.TextBox textBox_Type;
-        private System.Windows.Forms.TextBox textBox_message;
         private System.Windows.Forms.Panel panel_cover;
         private System.Windows.Forms.RichTextBox richTextBox_message;
     }
