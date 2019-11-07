@@ -17,6 +17,7 @@ namespace CaroLAN_v2
         public Form1 form1;
         public ChessBoard CHESSBOARD;
 
+        public bool isHostGame;
         private bool isMessageOpened;
 
         private int player1_score = 0;
@@ -52,7 +53,7 @@ namespace CaroLAN_v2
             }
             SOCKET = socket;
             this.form1 = form1;
-
+            this.isHostGame = isHostGame;
             CHESSBOARD = new ChessBoard(this.Panel_ChessBoard, this, isHostGame);
 
             CHESSBOARD.BoardChecked += CHESSBOARD_BoardChecked;
@@ -154,6 +155,17 @@ namespace CaroLAN_v2
                     this.Invoke((MethodInvoker)(() =>
                     {
                         textBox_message.AppendText(label_NameGuest.Text + ": " + Data.message + Environment.NewLine);
+
+                        //richtextbox test:
+                        int pos_Start = richTextBox_message.TextLength;
+                        int name_length = label_NameGuest.Text.Length;
+                        richTextBox_message.AppendText(label_NameGuest.Text + ": ");
+                        richTextBox_message.Select(pos_Start, name_length + 2);
+                        richTextBox_message.SelectionColor = (isHostGame) ? Color.Blue : Color.Red;
+                        richTextBox_message.AppendText(Data.message + Environment.NewLine+Environment.NewLine);
+                        richTextBox_message.Select(name_length + pos_Start + 2, richTextBox_message.TextLength);
+                        richTextBox_message.SelectionColor = Color.Black;
+                        richTextBox_message.ScrollToCaret();
                     }));
                     
                     break;
@@ -314,6 +326,17 @@ namespace CaroLAN_v2
             {
                 //int start = textBox_Type.SelectionStart;
                 textBox_message.AppendText(label_NameMain.Text + ": " + textBox_Type.Text + Environment.NewLine);
+
+                //Test with RichTextBox
+                int pos_Start = richTextBox_message.TextLength;
+                int name_length = label_NameMain.Text.Length;
+                richTextBox_message.AppendText(label_NameMain.Text + ": ");
+                richTextBox_message.Select(pos_Start, name_length + 2);
+                richTextBox_message.SelectionColor = (isHostGame) ? Color.Red : Color.Blue;
+                richTextBox_message.AppendText(textBox_Type.Text + Environment.NewLine+Environment.NewLine);
+                richTextBox_message.Select(name_length + pos_Start + 2, richTextBox_message.TextLength);
+                richTextBox_message.SelectionColor = Color.Black;
+                richTextBox_message.ScrollToCaret();
 
                 SocketData socdat = new SocketData((int)SocketCommand.NOTIFY, new Point(), textBox_Type.Text);
                 SOCKET.Send(socdat);
