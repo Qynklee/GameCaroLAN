@@ -296,6 +296,7 @@
             // 
             this.richTextBox_message.Location = new System.Drawing.Point(11, 26);
             this.richTextBox_message.Name = "richTextBox_message";
+            this.richTextBox_message.ReadOnly = true;
             this.richTextBox_message.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox_message.Size = new System.Drawing.Size(326, 600);
             this.richTextBox_message.TabIndex = 3;

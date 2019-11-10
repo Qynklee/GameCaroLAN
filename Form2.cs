@@ -32,6 +32,8 @@ namespace CaroLAN_v2
 
             isMessageOpened = false;
 
+            richTextBox_message.BackColor = Color.White;
+
             Size = new Size(750, this.Height);
 
             //Show name and turn:
