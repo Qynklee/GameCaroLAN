@@ -71,10 +71,11 @@ namespace CaroLAN_v2 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CaroGame v3.2.2
+        ///   Looks up a localized string similar to CaroGame v3.2.5
         ///Developer Team:
         ///   Đào Anh Tú (@Qynklee)
         ///   Nguyễn Ngọc Hưng (@tamquy999)
+        ///   BĐATTT_53
         ///Thanks for:  Mr. Ha Chi Trung
         ///Thanks to: Google, Microsoft, StackOverflow, ...
         ///This game is now open source on: 
